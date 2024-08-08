@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+ <html lang="pt-BR">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Questão</title>
+     <link rel="stylesheet" href="../static/questoes.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Squada+One&display=swap" rel="stylesheet">
+ </head>
+ <body>
+     <div class="container">
+         <div id="lives">
+             <img src="../static/img/Heart.png" alt="Heart" class="life">
+             <img src="../static/img/Heart.png" alt="Heart" class="life">
+             <img src="../static/img/Heart.png" alt="Heart" class="life">
+         </div>
+ 
+         <h1 id="question">{{ question.textoPergunta }}</h1>
+         <div class="options">
+             {% for alt in alternatives %}
+             <button class="option" onclick="selectOption('{{ alt.id_alternativa }}')">
+                 {{ alt.textoAlternativa }}
+             </button>
+             {% endfor %}
+         </div>
+         <p id="result"></p>
+        <!-- Adicionado para verificação -->
+        <p>Resposta correta: {{ correct_answer_text }}</p>
+     </div>
+     <script src="../static/js/questoes.js">
+        const correctAnswerText = '{{ correct_answer_text }}';
+     </script>
+    
+ </body>
+ </html>
+ 
